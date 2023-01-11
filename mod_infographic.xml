@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" version="3.2.0" method="upgrade">
+
+    <name>MOD_INFOGRAPHIC</name>
+    <author>Andy Kirk</author>
+    <authorEmail>andy.kirk@npeu.ox.ac.uk</authorEmail>
+    <authorUrl>https://www.npeu.ox.ac.uk</authorUrl>
+    <creationDate>January 2023</creationDate>
+    <copyright>(C) NPEU 2023</copyright>
+    <license>MIT License; see LICENSE.md</license>
+
+    <!--  The version string is recorded in the components table -->
+    <version>1.0.0</version>
+    <!-- The description is optional and defaults to the name -->
+    <description>MOD_INFOGRAPHIC_XML_DESCRIPTION</description>
+
+    <updateservers>
+        <!-- Note: No spaces or linebreaks allowed between the server tags -->
+        <server type="extension" name="NPEU: mod_infographic Update Site">https://raw.githubusercontent.com/NPEU/mod_infographic/main/update-manifest.xml</server>
+    </updateservers>
+
+    <files>
+        <filename module="mod_infographic">mod_infographic.php</filename>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="title"
+                    type="text"
+                    label="MOD_INFOGRAPHIC_TITLE_LABEL"
+                    description="MOD_INFOGRAPHIC_TITLE_DESC"
+                    default=""
+                    required="true"
+                />
+                <field
+                    name="markup"
+                    type="editor"
+                    label="MOD_INFOGRAPHIC_MARKUP_LABEL"
+                    description="MOD_INFOGRAPHIC_MARKUP_DESC"
+                    default=""
+                    editor="codemirror"
+                    filter="raw"
+                />
+                <field
+                    name="svg_images"
+                    type="subform"
+                    label="MOD_INFOGRAPHIC_SVGIMAGES_LABEL"
+                    description="MOD_INFOGRAPHIC_SVGIMAGES_DESC"
+                    multiple="true"
+                    min="1"
+                >
+                    <form>
+                        <field
+                            name="svg_image"
+                            type="editor"
+                            label="MOD_INFOGRAPHIC_SVGIMAGE_LABEL"
+                            description="MOD_INFOGRAPHIC_SVGIMAGE_DESC"
+                            default=""
+                            editor="codemirror"
+                            filter="raw"
+                        />
+                    </form>
+                </field>
+                <field
+                    name="css_inline"
+                    type="editor"
+                    label="MOD_INFOGRAPHIC_CSSINLINE_LABEL"
+                    description="MOD_INFOGRAPHIC_CSSINLINE_DESC"
+                    default=""
+                    editor="codemirror"
+                    filter="raw"
+                />
+                <field
+                    name="css_file"
+                    type="editor"
+                    label="MOD_INFOGRAPHIC_CSSFILE_LABEL"
+                    description="MOD_INFOGRAPHIC_CSSFILE_DESC"
+                    default=""
+                    editor="codemirror"
+                    filter="raw"
+                />
+            </fieldset>
+        </fields>
+    </config>
+
+</extension>
