@@ -16,4 +16,11 @@ JLoader::register('ModInfographicHelper', __DIR__ . '/helper.php');
 
 #$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 
+if ($params->def('prepare_content', 0))
+{
+	JPluginHelper::importPlugin('content');
+	$module->content = JHtml::_('content.prepare', $module->content, '', 'mod_custom.content');
+}
+#echo '<pre>'; var_dump($params->def('prepare_content', 0)); echo '</pre>';
+
 require JModuleHelper::getLayoutPath('mod_infographic', $params->get('layout', 'default'));

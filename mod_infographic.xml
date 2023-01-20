@@ -19,6 +19,11 @@
         <server type="extension" name="NPEU: mod_infographic Update Site">https://raw.githubusercontent.com/NPEU/mod_infographic/main/update-manifest.xml</server>
     </updateservers>
 
+    <languages>
+		<language tag="en-GB">en-GB.mod_custom.ini</language>
+		<language tag="en-GB">en-GB.mod_custom.sys.ini</language>
+	</languages>
+
     <files>
         <filename module="mod_infographic">mod_infographic.php</filename>
         <filename>helper.php</filename>
@@ -28,45 +33,17 @@
     </files>
 
     <config>
-        <fields name="params">
-            <fieldset name="basic">
-                <field
-                    name="title"
-                    type="text"
-                    label="MOD_INFOGRAPHIC_TITLE_LABEL"
-                    description="MOD_INFOGRAPHIC_TITLE_DESC"
-                    default=""
-                    required="true"
-                />
-                <field
-                    name="markup"
-                    type="editor"
-                    label="MOD_INFOGRAPHIC_MARKUP_LABEL"
-                    description="MOD_INFOGRAPHIC_MARKUP_DESC"
-                    default=""
-                    editor="codemirror"
-                    filter="raw"
-                />
-                <field
-                    name="svg_images"
-                    type="subform"
-                    label="MOD_INFOGRAPHIC_SVGIMAGES_LABEL"
-                    description="MOD_INFOGRAPHIC_SVGIMAGES_DESC"
-                    multiple="true"
-                    min="1"
-                >
-                    <form>
-                        <field
-                            name="svg_image"
-                            type="editor"
-                            label="MOD_INFOGRAPHIC_SVGIMAGE_LABEL"
-                            description="MOD_INFOGRAPHIC_SVGIMAGE_DESC"
-                            default=""
-                            editor="codemirror"
-                            filter="raw"
-                        />
-                    </form>
-                </field>
+        <fieldset name="basic">
+            <field
+                name="content"
+                type="editor"
+                label="MOD_INFOGRAPHIC_MARKUP_LABEL"
+                description="MOD_INFOGRAPHIC_MARKUP_DESC"
+                default=""
+                editor="codemirror"
+                filter="raw"
+            />
+            <fields name="params">
                 <field
                     name="css_inline"
                     type="editor"
@@ -85,8 +62,24 @@
                     editor="codemirror"
                     filter="raw"
                 />
-            </fieldset>
-        </fields>
+           </fields>
+        </fieldset>
+        <fieldset name="advanced">
+            <fields name="params">
+                <field
+                    name="prepare_content"
+                    type="radio"
+                    label="MOD_INFOGRAPHIC_PREPCONTENT_LABEL"
+                    description="MOD_INFOGRAPHIC_PREPCONTENT_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="0"
+                    filter="integer"
+                    >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fields>
+        </fieldset>
     </config>
 
 </extension>
