@@ -3,14 +3,15 @@
  * @package     Joomla.Site
  * @subpackage  mod_infographic
  *
- * @copyright   Copyright (C) NPEU 2023.
+ * @copyright   Copyright (C) NPEU 2024.
  * @license     MIT License; see LICENSE.md
  */
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 
-$doc = JFactory::getDocument();
+$doc = Factory::getDocument();
 
 
 $css_file = $params->get('css_file', false);
@@ -25,6 +26,7 @@ if ($css_file) {
 }
 
 $css_inline = $params->get('css_inline', false);
+
 if ($css_inline) {
     $doc->addStyleDeclaration($css_inline);
 }
