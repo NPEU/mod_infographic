@@ -35,7 +35,7 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 
         /*$data['stuff'] = $this->getHelperFactory()
             ->getHelper('InfographicHelper')
-            ->getStuff($data['params'], $this->getApplication());*/
+            ->getStuff($params, $this->getApplication());*/
 
         return $data;
     }
