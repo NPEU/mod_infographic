@@ -26,6 +26,7 @@
         <folder>language</folder>
         <folder>src</folder>
         <folder>tmpl</folder>
+        <filename>serve_css.php</filename>
     </files>
 
     <config>
